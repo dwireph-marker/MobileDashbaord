@@ -1,0 +1,426 @@
+/* =========================================================
+   PROFESSIONAL MOBILE DASHBOARD CSS
+   File: assets/custom.css
+========================================================= */
+
+/* =========================================================
+   GLOBAL SETTINGS
+========================================================= */
+
+html,
+body,
+[class*="css"] {
+
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Main App Background */
+.stApp {
+
+    background:
+        linear-gradient(
+            135deg,
+            #081120 0%,
+            #0B1426 35%,
+            #09192F 100%
+        );
+
+    color: white;
+}
+
+/* Remove Streamlit Default Header/Footer */
+header,
+footer {
+
+    visibility: hidden;
+}
+
+/* Main Container Padding */
+.block-container {
+
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+[data-testid="stSidebar"] {
+
+    background:
+        linear-gradient(
+            180deg,
+            #0F172A 0%,
+            #091326 100%
+        );
+
+    border-right:
+        1px solid rgba(255,255,255,0.08);
+}
+
+/* Sidebar Text */
+[data-testid="stSidebar"] * {
+
+    color: white;
+}
+
+/* Sidebar Title */
+.sidebar-title {
+
+    font-size: 30px;
+    font-weight: 700;
+
+    margin-bottom: 25px;
+}
+
+/* =========================================================
+   MULTISELECT BOX
+========================================================= */
+
+.stMultiSelect div[data-baseweb="select"] {
+
+    background-color:
+        rgba(255,255,255,0.05);
+
+    border-radius: 12px;
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+}
+
+/* =========================================================
+   SLIDER
+========================================================= */
+
+.stSlider > div {
+
+    color: white;
+}
+
+/* =========================================================
+   DASHBOARD TITLE
+========================================================= */
+
+.dashboard-title {
+
+    font-size: 46px;
+    font-weight: 800;
+
+    color: white;
+
+    margin-bottom: 5px;
+}
+
+/* Subtitle */
+.dashboard-subtitle {
+
+    font-size: 18px;
+
+    color: #94A3B8;
+
+    margin-bottom: 25px;
+}
+
+/* =========================================================
+   KPI CARDS
+========================================================= */
+
+.kpi-card {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(17,24,39,0.95),
+            rgba(30,41,59,0.90)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    padding: 22px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0px 4px 18px rgba(0,0,0,0.25);
+
+    transition: 0.3s ease;
+}
+
+/* Hover Animation */
+.kpi-card:hover {
+
+    transform: translateY(-5px);
+}
+
+/* KPI Flex Layout */
+.kpi-row {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+/* KPI Icon */
+.kpi-icon {
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 26px;
+    font-weight: bold;
+
+    color: white;
+}
+
+/* KPI Colors */
+
+.blue {
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563EB,
+            #3B82F6
+        );
+}
+
+.green {
+
+    background:
+        linear-gradient(
+            135deg,
+            #22C55E,
+            #4ADE80
+        );
+}
+
+.purple {
+
+    background:
+        linear-gradient(
+            135deg,
+            #8B5CF6,
+            #A78BFA
+        );
+}
+
+.gray {
+
+    background:
+        linear-gradient(
+            135deg,
+            #64748B,
+            #94A3B8
+        );
+}
+
+/* KPI Title */
+.kpi-title {
+
+    color: #CBD5E1;
+
+    font-size: 15px;
+
+    margin-bottom: 5px;
+}
+
+/* KPI Value */
+.kpi-value {
+
+    color: white;
+
+    font-size: 34px;
+
+    font-weight: 700;
+}
+
+/* KPI Subtitle */
+.kpi-sub {
+
+    color: #94A3B8;
+
+    font-size: 13px;
+}
+
+/* =========================================================
+   SECTION TITLES
+========================================================= */
+
+.section-title {
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    margin-top: 25px;
+    margin-bottom: 18px;
+
+    color: white;
+}
+
+/* =========================================================
+   CHART CARD
+========================================================= */
+
+.chart-card {
+
+    background:
+        rgba(17,24,39,0.85);
+
+    border-radius: 20px;
+
+    padding: 18px;
+
+    border:
+        1px solid rgba(255,255,255,0.07);
+
+    box-shadow:
+        0px 4px 16px rgba(0,0,0,0.22);
+}
+
+/* =========================================================
+   INSIGHT BOX
+========================================================= */
+
+.insight-box {
+
+    background:
+        rgba(17,24,39,0.90);
+
+    border-radius: 18px;
+
+    padding: 22px;
+
+    border-left:
+        5px solid #3B82F6;
+
+    box-shadow:
+        0px 4px 12px rgba(0,0,0,0.18);
+}
+
+/* Insight Title */
+.insight-title {
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    margin-bottom: 15px;
+
+    color: #3B82F6;
+}
+
+/* Insight Text */
+.insight-text {
+
+    color: #CBD5E1;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+}
+
+/* =========================================================
+   DATA TABLE
+========================================================= */
+
+[data-testid="stDataFrame"] {
+
+    border-radius: 15px;
+
+    overflow: hidden;
+}
+
+/* =========================================================
+   DOWNLOAD BUTTON
+========================================================= */
+
+.stDownloadButton button {
+
+    width: 100%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563EB,
+            #3B82F6
+        );
+
+    border: none;
+
+    color: white;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    font-weight: 600;
+}
+
+/* Hover Effect */
+.stDownloadButton button:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            #1D4ED8,
+            #2563EB
+        );
+}
+
+/* =========================================================
+   METRIC SPACING
+========================================================= */
+
+div[data-testid="metric-container"] {
+
+    background:
+        rgba(17,24,39,0.90);
+
+    border:
+        1px solid rgba(255,255,255,0.05);
+
+    padding: 15px;
+
+    border-radius: 16px;
+}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+
+    background: #0B1426;
+}
+
+::-webkit-scrollbar-thumb {
+
+    background: #334155;
+
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: #475569;
+}
