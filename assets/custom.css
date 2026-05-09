@@ -1,128 +1,72 @@
 /* =========================================================
-   PROFESSIONAL MOBILE DASHBOARD CSS
-   File: assets/custom.css
-========================================================= */
-
-/* =========================================================
-   GLOBAL SETTINGS
+   GLOBAL STYLES
 ========================================================= */
 
 html,
 body,
 [class*="css"] {
+  font-family: "Inter", sans-serif;
 
-    font-family: 'Segoe UI', sans-serif;
+  background: #020617;
+
+  color: #f8fafc;
 }
 
-/* Main App Background */
+/* =========================================================
+   MAIN APP
+========================================================= */
+
 .stApp {
-
-    background:
-        linear-gradient(
-            135deg,
-            #081120 0%,
-            #0B1426 35%,
-            #09192F 100%
-        );
-
-    color: white;
-}
-
-/* Remove Streamlit Default Header/Footer */
-header,
-footer {
-
-    visibility: hidden;
-}
-
-/* Main Container Padding */
-.block-container {
-
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-
-    padding-left: 2rem;
-    padding-right: 2rem;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(59, 130, 246, 0.15),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(16, 185, 129, 0.12),
+      transparent 30%
+    ),
+    #020617;
 }
 
 /* =========================================================
    SIDEBAR
 ========================================================= */
 
-[data-testid="stSidebar"] {
+section[data-testid="stSidebar"] {
+  background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
 
-    background:
-        linear-gradient(
-            180deg,
-            #0F172A 0%,
-            #091326 100%
-        );
-
-    border-right:
-        1px solid rgba(255,255,255,0.08);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Sidebar Text */
-[data-testid="stSidebar"] * {
-
-    color: white;
-}
-
-/* Sidebar Title */
-.sidebar-title {
-
-    font-size: 30px;
-    font-weight: 700;
-
-    margin-bottom: 25px;
+section[data-testid="stSidebar"] * {
+  color: #f8fafc !important;
 }
 
 /* =========================================================
-   MULTISELECT BOX
-========================================================= */
-
-.stMultiSelect div[data-baseweb="select"] {
-
-    background-color:
-        rgba(255,255,255,0.05);
-
-    border-radius: 12px;
-
-    border:
-        1px solid rgba(255,255,255,0.08);
-}
-
-/* =========================================================
-   SLIDER
-========================================================= */
-
-.stSlider > div {
-
-    color: white;
-}
-
-/* =========================================================
-   DASHBOARD TITLE
+   TITLES
 ========================================================= */
 
 .dashboard-title {
+  font-size: 42px;
 
-    font-size: 46px;
-    font-weight: 800;
+  font-weight: 800;
 
-    color: white;
+  color: #ffffff;
 
-    margin-bottom: 5px;
+  margin-bottom: 5px;
+
+  letter-spacing: -1px;
 }
 
-/* Subtitle */
 .dashboard-subtitle {
+  font-size: 16px;
 
-    font-size: 18px;
+  color: #94a3b8;
 
-    color: #94A3B8;
-
-    margin-bottom: 25px;
+  margin-bottom: 35px;
 }
 
 /* =========================================================
@@ -130,130 +74,83 @@ footer {
 ========================================================= */
 
 .kpi-card {
+  background: rgba(15, 23, 42, 0.75);
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(17,24,39,0.95),
-            rgba(30,41,59,0.90)
-        );
+  backdrop-filter: blur(16px);
 
-    border:
-        1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 
-    padding: 22px;
+  border-radius: 22px;
 
-    border-radius: 20px;
+  padding: 24px;
 
-    box-shadow:
-        0px 4px 18px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
 
-    transition: 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+
+  overflow: hidden;
+
+  position: relative;
 }
 
-/* Hover Animation */
 .kpi-card:hover {
+  transform: translateY(-6px);
 
-    transform: translateY(-5px);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.15);
 }
 
-/* KPI Flex Layout */
-.kpi-row {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 15px;
-}
-
-/* KPI Icon */
-.kpi-icon {
-
-    width: 55px;
-    height: 55px;
-
-    border-radius: 50%;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    font-size: 26px;
-    font-weight: bold;
-
-    color: white;
-}
-
-/* KPI Colors */
-
-.blue {
-
-    background:
-        linear-gradient(
-            135deg,
-            #2563EB,
-            #3B82F6
-        );
-}
-
-.green {
-
-    background:
-        linear-gradient(
-            135deg,
-            #22C55E,
-            #4ADE80
-        );
-}
-
-.purple {
-
-    background:
-        linear-gradient(
-            135deg,
-            #8B5CF6,
-            #A78BFA
-        );
-}
-
-.gray {
-
-    background:
-        linear-gradient(
-            135deg,
-            #64748B,
-            #94A3B8
-        );
-}
-
-/* KPI Title */
 .kpi-title {
+  font-size: 14px;
 
-    color: #CBD5E1;
+  color: #94a3b8;
 
-    font-size: 15px;
+  margin-bottom: 10px;
 
-    margin-bottom: 5px;
+  font-weight: 500;
 }
 
-/* KPI Value */
 .kpi-value {
+  font-size: 34px;
 
-    color: white;
+  font-weight: 800;
 
-    font-size: 34px;
+  color: #ffffff;
 
-    font-weight: 700;
+  margin-bottom: 6px;
 }
 
-/* KPI Subtitle */
-.kpi-sub {
+.kpi-subtitle {
+  font-size: 13px;
 
-    color: #94A3B8;
+  color: #64748b;
+}
 
-    font-size: 13px;
+/* =========================================================
+   CHART CONTAINER
+========================================================= */
+
+.chart-container {
+  background: rgba(15, 23, 42, 0.72);
+
+  border-radius: 22px;
+
+  padding: 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  margin-bottom: 25px;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+
+  transition: all 0.3s ease;
+}
+
+.chart-container:hover {
+  border: 1px solid rgba(59, 130, 246, 0.25);
+
+  transform: translateY(-4px);
 }
 
 /* =========================================================
@@ -261,35 +158,15 @@ footer {
 ========================================================= */
 
 .section-title {
+  font-size: 24px;
 
-    font-size: 28px;
+  font-weight: 700;
 
-    font-weight: 700;
+  color: #ffffff;
 
-    margin-top: 25px;
-    margin-bottom: 18px;
+  margin-bottom: 20px;
 
-    color: white;
-}
-
-/* =========================================================
-   CHART CARD
-========================================================= */
-
-.chart-card {
-
-    background:
-        rgba(17,24,39,0.85);
-
-    border-radius: 20px;
-
-    padding: 18px;
-
-    border:
-        1px solid rgba(255,255,255,0.07);
-
-    box-shadow:
-        0px 4px 16px rgba(0,0,0,0.22);
+  margin-top: 10px;
 }
 
 /* =========================================================
@@ -297,106 +174,127 @@ footer {
 ========================================================= */
 
 .insight-box {
+  background: linear-gradient(
+    135deg,
+    rgba(30, 41, 59, 0.95),
+    rgba(15, 23, 42, 0.9)
+  );
 
-    background:
-        rgba(17,24,39,0.90);
+  border-radius: 20px;
 
-    border-radius: 18px;
+  padding: 24px;
 
-    padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 
-    border-left:
-        5px solid #3B82F6;
-
-    box-shadow:
-        0px 4px 12px rgba(0,0,0,0.18);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
-/* Insight Title */
-.insight-title {
-
-    font-size: 22px;
-
-    font-weight: 700;
-
-    margin-bottom: 15px;
-
-    color: #3B82F6;
+.insight-box ul {
+  padding-left: 20px;
 }
 
-/* Insight Text */
-.insight-text {
+.insight-box li {
+  margin-bottom: 10px;
 
-    color: #CBD5E1;
+  color: #cbd5e1;
 
-    font-size: 16px;
-
-    line-height: 1.9;
+  font-size: 15px;
 }
 
 /* =========================================================
-   DATA TABLE
+   TABLES
 ========================================================= */
 
 [data-testid="stDataFrame"] {
+  background: rgba(15, 23, 42, 0.78);
 
-    border-radius: 15px;
+  border-radius: 18px;
 
-    overflow: hidden;
+  padding: 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 /* =========================================================
-   DOWNLOAD BUTTON
+   BUTTONS
 ========================================================= */
 
-.stDownloadButton button {
+.stButton > button {
+  width: 100%;
 
-    width: 100%;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
 
-    background:
-        linear-gradient(
-            135deg,
-            #2563EB,
-            #3B82F6
-        );
+  color: white;
 
-    border: none;
+  border: none;
 
-    color: white;
+  border-radius: 14px;
 
-    padding: 12px;
+  padding: 12px 20px;
 
-    border-radius: 12px;
+  font-size: 15px;
 
-    font-weight: 600;
+  font-weight: 600;
+
+  transition: all 0.3s ease;
+
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
 }
 
-/* Hover Effect */
-.stDownloadButton button:hover {
+.stButton > button:hover {
+  transform: translateY(-2px);
 
-    background:
-        linear-gradient(
-            135deg,
-            #1D4ED8,
-            #2563EB
-        );
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+
+  box-shadow: 0 12px 22px rgba(37, 99, 235, 0.4);
 }
 
 /* =========================================================
-   METRIC SPACING
+   INPUTS
 ========================================================= */
 
-div[data-testid="metric-container"] {
+.stSelectbox div[data-baseweb="select"],
+.stTextInput input,
+.stNumberInput input {
+  background: rgba(15, 23, 42, 0.9) !important;
 
-    background:
-        rgba(17,24,39,0.90);
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
 
-    border:
-        1px solid rgba(255,255,255,0.05);
+  border-radius: 14px !important;
 
-    padding: 15px;
+  color: white !important;
+}
 
-    border-radius: 16px;
+/* =========================================================
+   MULTISELECT TAGS
+========================================================= */
+
+span[data-baseweb="tag"] {
+  background: #2563eb !important;
+
+  color: white !important;
+
+  border-radius: 10px !important;
+}
+
+/* =========================================================
+   METRICS
+========================================================= */
+
+[data-testid="metric-container"] {
+  background: transparent;
+
+  border: none;
+}
+
+/* =========================================================
+   PLOTLY CHARTS
+========================================================= */
+
+.js-plotly-plot {
+  border-radius: 18px;
+
+  overflow: hidden;
 }
 
 /* =========================================================
@@ -404,23 +302,222 @@ div[data-testid="metric-container"] {
 ========================================================= */
 
 ::-webkit-scrollbar {
-
-    width: 10px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-
-    background: #0B1426;
+  background: #0f172a;
 }
 
 ::-webkit-scrollbar-thumb {
+  background: #334155;
 
-    background: #334155;
-
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
 
-    background: #475569;
+/* =========================================================
+   TABS
+========================================================= */
+
+.stTabs [data-baseweb="tab-list"] {
+  gap: 12px;
+}
+
+.stTabs [data-baseweb="tab"] {
+  background: rgba(15, 23, 42, 0.85);
+
+  border-radius: 12px;
+
+  padding: 12px 20px;
+
+  color: #cbd5e1;
+
+  transition: 0.3s;
+}
+
+.stTabs [aria-selected="true"] {
+  background: #2563eb !important;
+
+  color: white !important;
+}
+
+/* =========================================================
+   ALERTS
+========================================================= */
+
+.stAlert {
+  border-radius: 16px;
+
+  border: none;
+}
+
+/* =========================================================
+   FORM CONTAINER
+========================================================= */
+
+form {
+  background: rgba(15, 23, 42, 0.65);
+
+  padding: 25px;
+
+  border-radius: 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  margin-top: 15px;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+
+@media (max-width: 768px) {
+  .dashboard-title {
+    font-size: 30px;
+  }
+
+  .kpi-value {
+    font-size: 26px;
+  }
+
+  .chart-container {
+    padding: 14px;
+  }
+}
+/* =========================================================
+   DASHBOARD HEADER
+========================================================= */
+
+.dashboard-header {
+  background: rgba(15, 23, 42, 0.72);
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  border-radius: 24px;
+
+  padding: 28px;
+
+  margin-bottom: 28px;
+
+  backdrop-filter: blur(18px);
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.dashboard-title {
+  font-size: 48px;
+
+  font-weight: 800;
+
+  color: white;
+
+  margin-bottom: 10px;
+
+  letter-spacing: -1px;
+}
+
+.navbar-subtitle {
+  color: #94a3b8;
+
+  font-size: 17px;
+
+  font-weight: 400;
+}
+
+/* =========================================================
+   KPI CARD
+========================================================= */
+
+.kpi-card {
+  background: rgba(15, 23, 42, 0.85);
+
+  border-radius: 22px;
+
+  padding: 22px;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  transition: 0.3s ease;
+
+  height: 160px;
+}
+
+.kpi-card:hover {
+  transform: translateY(-5px);
+
+  border: 1px solid rgba(59, 130, 246, 0.4);
+
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.18);
+}
+
+/* =========================================================
+   KPI HEADER
+========================================================= */
+
+.kpi-header {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 18px;
+}
+
+/* =========================================================
+   KPI ICON
+========================================================= */
+
+.kpi-icon {
+  width: 52px;
+
+  height: 52px;
+
+  border-radius: 14px;
+
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+.kpi-icon i {
+  color: white;
+
+  font-size: 24px;
+}
+
+/* =========================================================
+   KPI TITLE
+========================================================= */
+
+.kpi-title {
+  font-size: 15px;
+
+  color: #cbd5e1;
+
+  font-weight: 600;
+}
+
+/* =========================================================
+   KPI VALUE
+========================================================= */
+
+.kpi-value {
+  font-size: 42px;
+
+  font-weight: 800;
+
+  color: white;
+
+  margin-top: 10px;
 }

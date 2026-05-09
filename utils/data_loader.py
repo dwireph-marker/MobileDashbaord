@@ -1,50 +1,165 @@
+# =====================================================
+# FILE: utils/data_loader.py
+# =====================================================
+
 import pandas as pd
 import streamlit as st
 
+from database.mongodb import get_all_devices
+
+
+# =====================================================
+# DEFAULT COLUMNS
+# =====================================================
+
+DEFAULT_COLUMNS = [
+
+    "brand",
+    "model",
+    "price_inr",
+    "ram_gb",
+    "storage_gb",
+    "camera_mp",
+    "battery_mah",
+    "display_size_inch",
+    "charging_watt",
+    "5g_support",
+    "os",
+    "processor",
+    "weight_g",
+    "rating",
+    "release_month",
+    "year"
+]
+
+
+# =====================================================
+# LOAD DATA
+# =====================================================
 
 @st.cache_data
 def load_data():
 
-    # Load Excel Dataset
-    df = pd.read_excel("data/mobile_data.xlsx")
+    try:
 
-    # =========================================
-    # DATA CLEANING
-    # =========================================
+        # =========================================
+        # FETCH DATA FROM MONGODB
+        # =========================================
 
-    # Remove Null Values
-    df.dropna(inplace=True)
+        data = get_all_devices()
 
-    # Remove Duplicates
-    df.drop_duplicates(inplace=True)
+        # =========================================
+        # EMPTY DATABASE
+        # =========================================
 
-    # Standardize Brand Names
-    df["brand"] = df["brand"].str.title()
+        if not data:
 
-    # Convert Numeric Columns
-    numeric_cols = [
-        "price_usd",
-        "ram_gb",
-        "storage_gb",
-        "camera_mp",
-        "battery_mah",
-        "display_size_inch",
-        "charging_watt",
-        "rating",
-        "year",
-        "weight_g"
-    ]
+            return pd.DataFrame(
+                columns=DEFAULT_COLUMNS
+            )
 
-    for col in numeric_cols:
+        # =========================================
+        # CREATE DATAFRAME
+        # =========================================
 
-        if col in df.columns:
+        df = pd.DataFrame(data)
+
+        # =========================================
+        # ENSURE ALL COLUMNS EXIST
+        # =========================================
+
+        for col in DEFAULT_COLUMNS:
+
+            if col not in df.columns:
+
+                df[col] = None
+
+        # =========================================
+        # REMOVE MONGODB _id
+        # =========================================
+
+        if "_id" in df.columns:
+
+            df.drop(
+                columns=["_id"],
+                inplace=True
+            )
+
+        # =========================================
+        # BRAND CLEANING
+        # =========================================
+
+        df["brand"] = (
+            df["brand"]
+            .astype(str)
+            .str.title()
+            .str.strip()
+        )
+
+        # =========================================
+        # STRING COLUMNS
+        # =========================================
+
+        string_columns = [
+
+            "brand",
+            "model",
+            "5g_support",
+            "os",
+            "processor",
+            "release_month"
+        ]
+
+        for col in string_columns:
+
+            df[col] = (
+                df[col]
+                .astype(str)
+                .str.strip()
+            )
+
+        # =========================================
+        # NUMERIC COLUMNS
+        # =========================================
+
+        numeric_columns = [
+
+            "price_inr",
+            "ram_gb",
+            "storage_gb",
+            "camera_mp",
+            "battery_mah",
+            "display_size_inch",
+            "charging_watt",
+            "weight_g",
+            "rating",
+            "year"
+        ]
+
+        for col in numeric_columns:
 
             df[col] = pd.to_numeric(
                 df[col],
                 errors="coerce"
             )
 
-    # Remove Remaining Null Values
-    df.dropna(inplace=True)
+        # =========================================
+        # RESET INDEX
+        # =========================================
 
-    return df
+        df.reset_index(
+            drop=True,
+            inplace=True
+        )
+
+        return df
+
+    except Exception as e:
+
+        st.error(
+            f"Database Error: {e}"
+        )
+
+        return pd.DataFrame(
+            columns=DEFAULT_COLUMNS
+        )
